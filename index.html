@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<!-- Replace YOUR-DOMAIN.com before launch -->
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Google Photos Locked Folder — Setup, Access, and FAQ</title>
+<meta content="A complete guide to finding, setting up, and safely accessing the Google Photos Locked Folder on your phone and PC. Compare native options with dedicated app locks." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        hero: 'var(--color-hero-bg)',
+                        primary: 'var(--color-primary-accent)',
+                        secondary: 'var(--color-secondary-accent)',
+                        content: 'var(--color-content-bg)',
+                        body: 'var(--color-body-text)',
+                        heading: 'var(--color-heading-text)',
+                        border: 'var(--color-border)',
+                        meta: 'var(--color-meta-text)',
+                    },
+                    fontFamily: {
+                        heading: ['Nunito', 'sans-serif'],
+                        body: ['Nunito', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        :root {
+            --md-primary: #7857CC;
+            --md-primary-container: #EADDFF;
+            --md-on-primary-container: #21005D;
+            --md-secondary-container: #E8DEF8;
+            --md-tertiary-container: #FFD8E4;
+            --md-surface: #FFFBFE;
+            --md-surface-variant: #E7E0EC;
+            --md-on-surface: #1C1B1F;
+            --md-outline: #79747E;
+            --md-outline-variant: #CAC4D0;
+            --md-white: #FFFFFF;
+            --md-error: #B3261E;
+
+            --color-hero-bg:          var(--md-surface);
+            --color-primary-accent:   var(--md-primary);
+            --color-secondary-accent: var(--md-secondary-container);
+            --color-content-bg:       var(--md-surface);
+            --color-body-text:        var(--md-on-surface);
+            --color-heading-text:     var(--md-on-primary-container);
+            --color-border:           var(--md-outline-variant);
+            --color-meta-text:        var(--md-outline);
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Nunito', sans-serif;
+            --max-reading-width:      780px;
+            --max-wide-width:         1040px;
+            --section-padding-v:      72px;
+            --radius-container:       28px;
+            --radius-card:            12px;
+            --radius-pill:            999px;
+            --md-elevation-1:         0 1px 2px rgba(28, 27, 31, 0.10), 0 1px 3px 1px rgba(28, 27, 31, 0.06);
+            --md-elevation-2:         0 2px 6px rgba(28, 27, 31, 0.12), 0 1px 2px rgba(28, 27, 31, 0.08);
+            --md-elevation-3:         0 4px 8px 3px rgba(28, 27, 31, 0.10), 0 1px 3px rgba(28, 27, 31, 0.08);
+            --md-elevation-4:         0 6px 10px 4px rgba(28, 27, 31, 0.10), 0 2px 3px rgba(28, 27, 31, 0.08);
+            --shadow-card:            var(--md-elevation-2);
+            --transition-speed:       150ms;
+        }
+
+        body {
+            background-color: var(--color-content-bg);
+            color: var(--color-body-text);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: var(--font-heading);
+            color: var(--color-heading-text);
+        }
+
+        /* Reading progress / Signature Detail */
+        #toc-spy-nav {
+            position: sticky;
+            top: 80px;
+        }
+        .spy-link.active {
+            color: var(--color-primary-accent);
+            font-weight: 500;
+            border-left-color: var(--color-primary-accent);
+        }
+
+        .premium-saas-band {
+            background-color: #2a1c24; /* Shifted -65 lightness from primary #593c4d */
+            color: #faf7f5;
+        }
+
+        .premium-saas-band h2 {
+            color: #faf7f5;
+        }
+
+        .clip-diagonal {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        /* Component Variations Styles */
+        .card-hover {
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+        .accordion-trigger[aria-expanded="true"] + .accordion-content {
+            max-height: 500px; /* Arbitrary large max-height for CSS transition */
+        }
+        .accordion-trigger[aria-expanded="true"] svg {
+            transform: rotate(180deg);
+        }
+    
+
+        /* Material Design 3 visual layer */
+        html {
+            scroll-padding-top: 92px;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at 8% 12%, rgba(234, 221, 255, 0.72), transparent 26rem),
+                radial-gradient(circle at 82% 5%, rgba(255, 216, 228, 0.55), transparent 24rem),
+                var(--md-surface);
+            color: var(--md-on-surface);
+            font-family: var(--font-body);
+            letter-spacing: 0.005em;
+            padding-bottom: 0;
+        }
+
+        a, button, .accordion-trigger, .os-btn {
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a[href^="http"] {
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+
+        .ripple-span {
+            position: absolute;
+            border-radius: 999px;
+            transform: scale(0);
+            background: currentColor;
+            opacity: 0.12;
+            pointer-events: none;
+            animation: md-ripple 650ms ease-out forwards;
+        }
+
+        @keyframes md-ripple {
+            to { transform: scale(4); opacity: 0; }
+        }
+
+        @keyframes ambient-seed {
+            0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.32; }
+            33% { transform: translate3d(36px, -24px, 0) scale(1.08); opacity: 0.46; }
+            66% { transform: translate3d(-28px, 30px, 0) scale(0.96); opacity: 0.36; }
+        }
+
+        .ambient-seed {
+            position: fixed;
+            z-index: -1;
+            width: 24rem;
+            height: 24rem;
+            border-radius: 999px;
+            filter: blur(80px);
+            pointer-events: none;
+            animation: ambient-seed 13s ease-in-out infinite;
+        }
+
+        .ambient-seed.seed-1 { background: var(--md-primary-container); top: -8rem; left: -6rem; }
+        .ambient-seed.seed-2 { background: var(--md-secondary-container); top: 24%; right: -8rem; animation-delay: -3s; }
+        .ambient-seed.seed-3 { background: var(--md-tertiary-container); bottom: 18%; left: -7rem; animation-delay: -6s; }
+        .ambient-seed.seed-4 { background: var(--md-surface-variant); bottom: -8rem; right: 10%; animation-delay: -9s; }
+        .ambient-seed.seed-5 { background: rgba(120, 87, 204, 0.20); top: 55%; left: 45%; animation-delay: -11s; }
+
+        header {
+            height: 72px !important;
+            background: rgba(255, 251, 254, 0.88) !important;
+            backdrop-filter: blur(18px);
+            border-color: var(--md-outline-variant) !important;
+            box-shadow: var(--md-elevation-1);
+        }
+
+        .brand-wordmark {
+            gap: 0.45rem !important;
+            color: var(--md-on-primary-container) !important;
+            letter-spacing: -0.015em;
+            white-space: nowrap;
+        }
+
+        .brand-wordmark .brand-logo {
+            width: 38px;
+            height: 38px;
+            border-radius: 14px;
+            box-shadow: var(--md-elevation-2);
+            background: var(--md-primary-container);
+        }
+
+        .brand-wordmark .brand-part-accent {
+            margin-left: 0.12rem;
+            color: var(--md-primary) !important;
+        }
+
+        .nav-pill {
+            position: relative;
+            isolation: isolate;
+            gap: 0.35rem !important;
+            padding: 0.35rem;
+            border-radius: var(--radius-pill);
+            background: rgba(232, 222, 248, 0.56);
+            border: 1px solid rgba(121, 116, 126, 0.18);
+        }
+
+        .nav-pill::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: var(--nav-left, 0.35rem);
+            top: 0.35rem;
+            width: var(--nav-width, 76px);
+            height: calc(100% - 0.7rem);
+            border-radius: var(--radius-pill);
+            background: var(--md-secondary-container);
+            box-shadow: inset 0 0 0 1px rgba(120, 87, 204, 0.12);
+            transition: left 220ms ease, width 220ms ease;
+        }
+
+        .nav-pill a {
+            padding: 0.55rem 0.85rem;
+            border-radius: var(--radius-pill);
+            color: var(--md-outline) !important;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .nav-pill a:hover,
+        .nav-pill a.active-nav {
+            color: var(--md-on-primary-container) !important;
+            text-decoration: none !important;
+        }
+
+        #hero {
+            background:
+                linear-gradient(135deg, rgba(234, 221, 255, 0.34), transparent 35%),
+                radial-gradient(circle at 90% 12%, rgba(255, 216, 228, 0.58), transparent 20rem),
+                var(--md-surface) !important;
+            padding-top: 72px !important;
+            padding-bottom: 84px !important;
+        }
+
+        #hero h1 {
+            display: inline-block;
+            background: var(--md-primary-container);
+            color: var(--md-on-primary-container) !important;
+            border-radius: var(--radius-container);
+            padding: clamp(1.35rem, 4vw, 2.25rem);
+            font-size: clamp(36px, 5.2vw, 57px) !important;
+            line-height: 1.04 !important;
+            box-shadow: var(--md-elevation-3);
+            letter-spacing: -0.035em;
+        }
+
+        #hero .bg-secondary,
+        .bg-secondary,
+        .bg-secondary\/10,
+        .bg-secondary\/20,
+        .bg-secondary\/30 {
+            background-color: var(--md-secondary-container) !important;
+        }
+
+        .bg-primary,
+        .hover\:bg-\[\#4a3140\]:hover {
+            background-color: var(--md-primary) !important;
+        }
+
+        .text-primary {
+            color: var(--md-primary) !important;
+        }
+
+        .border-primary,
+        .border-primary\/20,
+        .border-primary\/30 {
+            border-color: color-mix(in srgb, var(--md-primary) 48%, transparent) !important;
+        }
+
+        .bg-content,
+        .bg-white {
+            background-color: var(--md-surface) !important;
+        }
+
+        .text-heading,
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--md-on-primary-container) !important;
+        }
+
+        .text-body {
+            color: var(--md-on-surface) !important;
+        }
+
+        .text-meta {
+            color: var(--md-outline) !important;
+        }
+
+        .border-border {
+            border-color: var(--md-outline-variant) !important;
+        }
+
+        .container {
+            max-width: min(1200px, calc(100vw - 2rem));
+        }
+
+        .section-block {
+            position: relative;
+        }
+
+        .section-block > h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem) !important;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .section-block :where(.rounded-xl, .rounded-lg, .rounded-md) {
+            border-radius: var(--radius-card) !important;
+        }
+
+        .section-block :where(.shadow-sm, .shadow-md, .shadow-lg, .shadow-2xl),
+        #toc-spy-nav,
+        .material-media,
+        .content-image,
+        .accordion-content,
+        .accordion-trigger {
+            box-shadow: var(--md-elevation-1) !important;
+        }
+
+        .section-block :where(.bg-white, .border, table, .overflow-x-auto),
+        #toc-spy-nav {
+            background-color: var(--md-surface) !important;
+            border-color: var(--md-outline-variant) !important;
+        }
+
+        .card-hover,
+        .section-block :where(.bg-white, .rounded-xl, .rounded-lg),
+        .content-image {
+            transition: background-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+        }
+
+        .card-hover:hover,
+        .section-block :where(.bg-white, .rounded-xl, .rounded-lg):hover,
+        .content-image:hover {
+            background-color: var(--md-surface-variant) !important;
+            transform: translateY(-2px);
+            box-shadow: var(--md-elevation-3) !important;
+        }
+
+        .premium-saas-band {
+            background:
+                radial-gradient(circle at 15% 10%, rgba(255, 216, 228, 0.72), transparent 22rem),
+                linear-gradient(135deg, var(--md-primary-container), var(--md-secondary-container)) !important;
+            color: var(--md-on-primary-container) !important;
+        }
+
+        .premium-saas-band h2,
+        .premium-saas-band p,
+        .premium-saas-band span {
+            color: var(--md-on-primary-container) !important;
+        }
+
+        .premium-saas-band a.bg-primary,
+        #pricing a.bg-primary,
+        #floating-fab {
+            border-radius: var(--radius-pill) !important;
+            background: var(--md-primary) !important;
+            color: #fff !important;
+            box-shadow: var(--md-elevation-3);
+        }
+
+        .premium-saas-band a.border,
+        #pricing a.border-\[1\.5px\],
+        section.border-t a.border-\[1\.5px\] {
+            border-radius: var(--radius-pill) !important;
+            border-color: var(--md-outline) !important;
+            color: var(--md-primary) !important;
+            background: rgba(255, 251, 254, 0.72);
+        }
+
+        .material-you-dynamic-card {
+            background: var(--md-primary-container) !important;
+            border-color: rgba(120, 87, 204, 0.18) !important;
+            border-radius: var(--radius-container) !important;
+            box-shadow: var(--md-elevation-4) !important;
+            padding: 0 !important;
+        }
+
+        .material-you-dynamic-card::before {
+            content: "";
+            display: block;
+            height: 58px;
+            background: var(--md-primary-container);
+            border-bottom: 1px solid rgba(120, 87, 204, 0.18);
+        }
+
+        .material-you-dynamic-card img {
+            background: var(--md-secondary-container) !important;
+            border-radius: 22px !important;
+            padding: 0.65rem;
+            margin: 1rem;
+            width: calc(100% - 2rem) !important;
+            height: calc(100% - 7.5rem) !important;
+        }
+
+        .material-you-dynamic-card .chip-row {
+            position: static !important;
+            display: flex !important;
+            justify-content: center !important;
+            gap: 0.65rem;
+            padding: 0 1rem 1rem !important;
+            pointer-events: none;
+        }
+
+        .material-you-dynamic-card .chip-row > div {
+            background: var(--md-tertiary-container) !important;
+            color: var(--md-on-primary-container) !important;
+            border: 1px solid rgba(120, 87, 204, 0.18) !important;
+            box-shadow: none !important;
+        }
+
+        .content-image {
+            margin: 1.85rem 0;
+            border: 1px solid var(--md-outline-variant);
+            border-radius: var(--radius-container);
+            background: var(--md-surface);
+            overflow: hidden;
+            padding: clamp(0.65rem, 2vw, 1rem);
+        }
+
+        .content-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 420px;
+            object-fit: contain;
+            border-radius: 18px;
+            margin-inline: auto;
+            background: var(--md-surface);
+        }
+
+        .content-image.compact img {
+            max-height: 300px;
+        }
+
+        .content-image.banner img {
+            max-height: 280px;
+        }
+
+        .content-image.product img {
+            max-height: 360px;
+        }
+
+        #toc-spy-nav {
+            border-radius: 24px !important;
+            background: rgba(255, 251, 254, 0.92) !important;
+        }
+
+        .spy-link {
+            border-left: 0 !important;
+            border-radius: var(--radius-pill);
+            padding: 0.5rem 0.75rem !important;
+        }
+
+        .spy-link.active {
+            background: var(--md-secondary-container);
+            color: var(--md-on-primary-container) !important;
+            font-weight: 800 !important;
+        }
+
+        .os-btn {
+            border-radius: var(--radius-pill) !important;
+            background: var(--md-secondary-container) !important;
+            color: var(--md-primary) !important;
+            transition: transform 150ms ease, background-color 150ms ease;
+        }
+
+        .os-btn[data-active="true"] {
+            background: var(--md-primary) !important;
+            color: #fff !important;
+        }
+
+        table thead {
+            background: var(--md-primary) !important;
+            color: #fff !important;
+        }
+
+        #pricing .grid > div:first-child {
+            background: var(--md-surface) !important;
+        }
+
+        #pricing .grid > div:nth-child(2) {
+            background: var(--md-primary-container) !important;
+            border-color: var(--md-primary) !important;
+        }
+
+        footer {
+            background:
+                radial-gradient(circle at 10% 0%, rgba(234, 221, 255, 0.22), transparent 24rem),
+                var(--md-on-primary-container) !important;
+            color: rgba(255, 255, 255, 0.82) !important;
+        }
+
+        footer .brand-wordmark {
+            color: #fff !important;
+        }
+
+        #floating-fab {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            width: 64px;
+            height: 64px;
+            display: grid;
+            place-items: center;
+            z-index: 60;
+            opacity: 0;
+            transform: translateY(18px) scale(0.92);
+            pointer-events: none;
+            transition: opacity 180ms ease, transform 180ms ease;
+        }
+
+        #floating-fab.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        #floating-fab svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        @media (max-width: 767px) {
+            body {
+                padding-bottom: 92px;
+            }
+
+            header {
+                height: 64px !important;
+            }
+
+            #mobile-menu-btn {
+                display: none !important;
+            }
+
+            #mobile-menu {
+                display: block !important;
+                position: fixed !important;
+                inset: auto 12px 12px 12px !important;
+                z-index: 70 !important;
+                height: auto !important;
+                padding: 0.35rem !important;
+                background: rgba(255, 251, 254, 0.94) !important;
+                border: 1px solid var(--md-outline-variant) !important;
+                border-radius: 28px !important;
+                box-shadow: var(--md-elevation-4) !important;
+                backdrop-filter: blur(18px);
+            }
+
+            #mobile-menu nav {
+                display: grid !important;
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+                gap: 0.15rem !important;
+                font-size: 10px !important;
+                line-height: 1.1;
+                text-align: center;
+            }
+
+            #mobile-menu a {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0.25rem;
+                min-height: 58px;
+                padding: 0.35rem 0.2rem;
+                border-radius: 22px;
+                color: var(--md-outline) !important;
+                font-weight: 800 !important;
+            }
+
+            #mobile-menu a::before {
+                font-size: 18px;
+                line-height: 1;
+            }
+
+            #mobile-menu a:nth-child(1)::before { content: "▣"; }
+            #mobile-menu a:nth-child(2)::before { content: "◌"; }
+            #mobile-menu a:nth-child(3)::before { content: "◫"; }
+            #mobile-menu a:nth-child(4)::before { content: "?"; }
+            #mobile-menu a:nth-child(5)::before { content: "↗"; }
+
+            #mobile-menu a:hover,
+            #mobile-menu a.active-nav {
+                background: var(--md-secondary-container);
+                color: var(--md-on-primary-container) !important;
+            }
+
+            #hero h1 {
+                width: 100%;
+                border-radius: 28px !important;
+            }
+
+            .premium-saas-band {
+                padding-top: 64px !important;
+                padding-bottom: 64px !important;
+            }
+
+            #floating-fab {
+                right: 18px;
+                bottom: 96px;
+                width: 58px;
+                height: 58px;
+            }
+        }
+</style>
+</head>
+<body class="antialiased"><div aria-hidden="true" class="ambient-seed seed-1"></div><div aria-hidden="true" class="ambient-seed seed-2"></div><div aria-hidden="true" class="ambient-seed seed-3"></div><div aria-hidden="true" class="ambient-seed seed-4"></div><div aria-hidden="true" class="ambient-seed seed-5"></div>
+<header class="sticky top-0 z-50 bg-content/95 backdrop-blur-md border-b border-border h-[64px] flex items-center">
+<div class="container mx-auto px-4 md:px-8 max-w-[1200px] flex justify-between items-center">
+<a class="flex items-center gap-2 font-heading font-bold text-xl text-heading tracking-tight brand-wordmark" href="/"><img alt="Security-themed PhotoVaultGuide shield logo" class="brand-logo object-contain" decoding="async" loading="eager" src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2096%2096%27%3E%0A%3Cdefs%3E%0A%3ClinearGradient%20id%3D%27g%27%20x1%3D%2712%27%20y1%3D%278%27%20x2%3D%2786%27%20y2%3D%2788%27%20gradientUnits%3D%27userSpaceOnUse%27%3E%0A%3Cstop%20stop-color%3D%27%23EADDFF%27/%3E%3Cstop%20offset%3D%270.55%27%20stop-color%3D%27%237857CC%27/%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23FFD8E4%27/%3E%0A%3C/linearGradient%3E%0A%3Cfilter%20id%3D%27s%27%20x%3D%27-20%25%27%20y%3D%27-20%25%27%20width%3D%27140%25%27%20height%3D%27140%25%27%3E%3CfeDropShadow%20dx%3D%270%27%20dy%3D%274%27%20stdDeviation%3D%275%27%20flood-color%3D%27%2321005D%27%20flood-opacity%3D%27.22%27/%3E%3C/filter%3E%0A%3C/defs%3E%0A%3Crect%20width%3D%2796%27%20height%3D%2796%27%20rx%3D%2728%27%20fill%3D%27%23FFFBFE%27/%3E%0A%3Cpath%20filter%3D%27url%28%23s%29%27%20d%3D%27M48%2010l30%2011v23c0%2019-12%2034-30%2042-18-8-30-23-30-42V21l30-11z%27%20fill%3D%27url%28%23g%29%27/%3E%0A%3Crect%20x%3D%2730%27%20y%3D%2743%27%20width%3D%2736%27%20height%3D%2725%27%20rx%3D%278%27%20fill%3D%27%23FFFBFE%27/%3E%0A%3Cpath%20d%3D%27M38%2043v-7c0-6%204-11%2010-11s10%205%2010%2011v7%27%20fill%3D%27none%27%20stroke%3D%27%2321005D%27%20stroke-width%3D%276%27%20stroke-linecap%3D%27round%27/%3E%0A%3Ccircle%20cx%3D%2748%27%20cy%3D%2755%27%20r%3D%274%27%20fill%3D%27%237857CC%27/%3E%0A%3Cpath%20d%3D%27M48%2058v5%27%20stroke%3D%27%237857CC%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27/%3E%0A%3C/svg%3E"/><span>PhotoVault</span><span class="brand-part-accent">Guide</span></a>
+<nav class="hidden md:flex gap-7 items-center text-[14px] nav-pill" id="desktop-nav">
+<a class="text-meta hover:text-primary transition-colors" href="#overview">Guide</a>
+<a class="text-meta hover:text-primary transition-colors" href="#methods">Methods</a>
+<a class="text-meta hover:text-primary transition-colors" href="#comparison">Comparison</a>
+<a class="text-meta hover:text-primary transition-colors" href="#faq">FAQ</a>
+<a class="text-primary font-medium hover:underline underline-offset-4 flex items-center gap-1" href="#recommendation">
+                    See Our Top Pick <span aria-hidden="true">→</span>
+</a>
+</nav>
+<button aria-label="Toggle menu" class="md:hidden p-2 text-heading" id="mobile-menu-btn">
+<svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="24"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+</header>
+<div class="hidden fixed inset-0 z-40 bg-content pt-[80px] px-6 pb-6 border-b border-border shadow-lg" id="mobile-menu">
+<nav class="flex flex-col gap-6 text-lg">
+<a class="text-heading font-medium mobile-link" href="#overview">Guide</a>
+<a class="text-heading font-medium mobile-link" href="#methods">Methods</a>
+<a class="text-heading font-medium mobile-link" href="#comparison">Comparison</a>
+<a class="text-heading font-medium mobile-link" href="#faq">FAQ</a>
+<a class="text-primary font-medium mobile-link" href="#recommendation">See Our Top Pick →</a>
+</nav>
+</div>
+<section class="bg-hero pt-12 pb-20 overflow-hidden relative" id="hero">
+<div class="container mx-auto px-4 md:px-8 max-w-[1200px]">
+<div class="grid md:grid-cols-12 gap-12 items-center">
+<!-- 60% Text Column -->
+<div class="md:col-span-7 space-y-6">
+<div class="text-[13px] text-meta flex items-center gap-2 uppercase tracking-wide font-medium">
+<a class="hover:text-primary" href="/">Security Hub</a>
+<span>/</span>
+<span>Mobile Privacy</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-extrabold leading-[1.15] text-heading">
+                        Google Photos Locked Folder — Setup, Access, and Troubleshooting
+                    </h1>
+<p class="text-lg text-body max-w-lg">
+                        Everything you need to know to hide private photos, access your locked folder across devices, and what to do if you forget your PIN.
+                    </p>
+<div class="flex items-center gap-4 text-[13px] text-meta pt-2">
+<span>Editorial Team</span>
+<span>•</span>
+<span>Updated Oct 2025</span>
+<span>•</span>
+<span>8 min read</span>
+</div>
+<!-- Quick Answer Box -->
+<div class="mt-8 bg-secondary border-l-4 border-primary p-5 rounded-r-md">
+<span class="text-[11px] font-bold uppercase tracking-widest text-primary block mb-2">Quick Answer</span>
+<p class="text-[15px] leading-relaxed">
+<strong>How to access Google Photos Locked Folder:</strong> Open the Google Photos app, go to <em>Library</em> &gt; <em>Utilities</em>, and scroll down to <em>Locked Folder</em>. Unlock it using your device PIN or fingerprint. Photos inside won't appear in your main grid or other apps.
+                        </p>
+</div>
+<!-- Raw GSC exact-query answer block -->
+<div class="pt-4 space-y-2">
+<h2 class="text-sm font-bold text-heading">Common Queries Addressed:</h2>
+<ul class="text-sm text-meta space-y-1">
+<li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg> How to access Google Photos Locked Folder on PC</li>
+<li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg> Can I change my Locked Folder password?</li>
+</ul>
+</div><div class="content-image banner"><img alt="Folder Lock Android feature banner showing private gallery protection and secure mobile data controls" class="w-full h-auto object-contain" decoding="async" loading="lazy" src="https://i.ibb.co/N2V8Zp9S/folder-lock-android-feature-graphic-banner.png"/></div>
+</div>
+<!-- 40% Visual Column -->
+<div class="md:col-span-5 relative hidden md:block">
+<div class="relative w-full aspect-[4/5] bg-white rounded-[24px] shadow-lg flex flex-col items-center justify-center p-4 border border-border/50 overflow-hidden">
+<img alt="Hide photos and videos securely on Android with Folder Lock" class="w-full h-full object-contain" decoding="async" loading="lazy" src="https://i.ibb.co/d4vzN9Zq/folder-lock-android-hide-photos-videos-promo.webp"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="container mx-auto px-4 md:px-8 max-w-[1200px] py-16 flex flex-col md:flex-row gap-12 relative">
+<!-- Left Sidebar: You Are Here / TOC -->
+<aside class="hidden md:block w-64 flex-shrink-0">
+<div class="bg-white rounded-xl p-5 shadow-sm border border-border" id="toc-spy-nav">
+<h3 class="text-xs font-bold uppercase tracking-wider text-meta mb-4">Contents</h3>
+<nav class="flex flex-col gap-3 text-[14px]">
+<a class="spy-link border-l-2 border-transparent pl-3 text-meta hover:text-heading transition-colors" href="#overview">What is the Locked Folder?</a>
+<a class="spy-link border-l-2 border-transparent pl-3 text-meta hover:text-heading transition-colors" href="#methods">Methods Guide</a>
+<a class="spy-link border-l-2 border-transparent pl-3 text-meta hover:text-heading transition-colors" href="#recommendation">Our Top Recommendation</a>
+<a class="spy-link border-l-2 border-transparent pl-3 text-meta hover:text-heading transition-colors" href="#tutorial">Step-by-Step Setup</a>
+<a class="spy-link border-l-2 border-transparent pl-3 text-meta hover:text-heading transition-colors" href="#troubleshooting">Troubleshooting Guide</a>
+<a class="spy-link border-l-2 border-transparent pl-3 text-meta hover:text-heading transition-colors" href="#interactive">Compatibility Checker</a>
+<a class="spy-link border-l-2 border-transparent pl-3 text-meta hover:text-heading transition-colors" href="#faq">FAQ</a>
+<a class="spy-link border-l-2 border-transparent pl-3 text-meta hover:text-heading transition-colors" href="#pricing">Pricing &amp; Plans</a>
+</nav>
+</div>
+</aside>
+<!-- Right Content Column -->
+<main class="flex-1 max-w-[var(--max-reading-width)] w-full">
+<!-- SECTION: Overview -->
+<section class="mb-16 scroll-mt-24 section-block" id="overview">
+<h2 class="text-3xl font-bold mb-6">Google Photos Locked Folder — Complete Guide</h2>
+<p class="mb-4">The Google Photos Locked Folder is a built-in privacy feature designed to hide sensitive images and videos from your main photo grid. When an item is moved to the locked folder, it is protected by your device's screen lock (PIN, pattern, or biometric) and becomes invisible to other apps on your phone.</p>
+<div class="bg-white border border-border p-6 rounded-xl my-8 flex gap-4 items-start shadow-sm">
+<div class="bg-secondary p-3 rounded-full text-primary shrink-0">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h4 class="font-bold text-heading mb-1 text-lg">Key Fact</h4>
+<p class="text-sm text-body">By default, items in the Locked Folder are <strong>not</strong> backed up to the cloud. If you lose your phone or uninstall the Google Photos app without turning on Locked Folder backup, those photos are permanently deleted.</p>
+</div>
+</div><div class="content-image compact"><img alt="Mobile lock screen security concept showing PIN and biometric protection for private photo access" class="w-full h-auto object-contain" decoding="async" loading="lazy" src="https://i.ibb.co/xtZC7X09/lock-screen-security.jpg"/></div>
+<h3 class="text-xl font-bold mt-8 mb-3">Locked Folder vs Hidden Album</h3>
+<p>Many users confuse the two. A standard "hidden album" merely moves photos out of the main timeline. The Google Photos Locked Folder goes further: it encrypts the files on the device level (or cloud if backup is enabled) and requires authentication to view. Third-party apps cannot scan or access files within the Locked Folder.</p>
+<div class="mt-8 rounded-xl overflow-hidden shadow-sm border border-border">
+<img alt="Comparison of standard mobile gallery versus securely locked private photos and videos interface" class="w-full h-auto object-contain bg-white max-h-[400px]" decoding="async" loading="lazy" src="https://i.ibb.co/PGbqzm3n/folder-lock-android-gallery-locked-photos-videos.jpg"/>
+</div>
+</section>
+<section class="mb-16 scroll-mt-24 section-block" id="methods">
+<h2 class="text-3xl font-bold mb-6">How Mobile App Locking Works (Available Methods)</h2>
+<p class="mb-8">While Google provides a built-in tool, there are different approaches to <a href="https://proprivacy.com/guides/encrypt-files-windows" rel="noopener noreferrer" target="_blank">securing files</a> on your mobile device. Here is how they compare.</p>
+<div class="space-y-8">
+<!-- Method 1: Native -->
+<div class="border border-border rounded-xl p-6 bg-white shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-bold">Method 1: Google's Native Locked Folder</h3>
+<span class="bg-secondary text-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Free / Built-in</span>
+</div>
+<p class="text-sm mb-4">Uses the Google Photos app natively. Tied to your phone's screen lock credentials.</p>
+<div class="grid sm:grid-cols-2 gap-4 text-sm">
+<div>
+<strong class="block text-heading mb-1">Best For:</strong>
+<span class="text-meta">Quickly hiding memes, receipts, or personal photos from casual shoulder-surfers.</span>
+</div>
+<div>
+<strong class="block text-heading mb-1">Limitations:</strong>
+<span class="text-meta">Cannot lock other apps. Password is the same as your phone unlock PIN.</span>
+</div>
+</div><div class="content-image compact"><img alt="Android security settings screen used for device PIN pattern and biometric access protection" class="w-full h-auto object-contain" decoding="async" loading="lazy" src="https://i.ibb.co/9HF3sZXG/android-security-settings.jpg"/></div>
+</div>
+<!-- Method 2: Dedicated App -->
+<div class="border-2 border-primary/20 rounded-xl p-6 bg-secondary/30 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -z-10"></div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-bold">Method 2: Dedicated Vault Apps (e.g., <a href="https://cloudstorageinfo.org/folder-lock-review" rel="noopener noreferrer" target="_blank">Folder Lock</a>)</h3>
+<span class="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Advanced Security</span>
+</div>
+<div class="mb-6 rounded-lg overflow-hidden border border-primary/20 bg-white">
+<img alt="Folder Lock Android App Lock promotion highlighting advanced application locking features and privacy controls" class="w-full h-auto object-contain max-h-[250px] mx-auto" decoding="async" loading="lazy" src="https://i.ibb.co/0jN89Rmp/folder-lock-android-app-lock-promo.webp"/>
+</div>
+<p class="text-sm mb-4">Third-party applications designed specifically for granular privacy, allowing separate passwords, cloud sync, and locking entire apps.</p><div class="content-image compact"><img alt="Folder Lock Android login options with PIN pattern password and fingerprint protection" class="w-full h-auto object-contain" decoding="async" loading="lazy" src="https://i.ibb.co/23qLYLFH/folder-lock-android-pin-pattern-password-fingerprint.jpg"/></div>
+<div class="grid sm:grid-cols-2 gap-4 text-sm">
+<div>
+<strong class="block text-heading mb-1">Best For:</strong>
+<span class="text-meta">Users needing a separate PIN from their device lock, or those wanting to lock banking/social apps alongside photos.</span>
+</div>
+<div>
+<strong class="block text-heading mb-1">Limitations:</strong>
+<span class="text-meta">Requires installing an additional application.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<section class="premium-saas-band py-20 section-block relative z-10 overflow-hidden" id="recommendation">
+<!-- Background Pattern -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
+<div class="container mx-auto px-4 md:px-8 max-w-[1100px] relative">
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div class="space-y-6">
+<span class="text-[13px] font-bold uppercase tracking-widest text-[#d4c3cd]">Our Recommendation</span>
+<h2 class="text-3xl md:text-4xl font-bold leading-tight">When the built-in tools aren't enough, we recommend Folder Lock.</h2>
+<p class="text-[16px] text-white/80 leading-relaxed max-w-md">
+                        While Google Photos Locked Folder is great for basic hiding, it relies on your phone's main PIN. If someone knows your phone passcode, they have access to your locked photos. 
+                        <br/><br/>
+                        Folder Lock acts as a dedicated vault utilizing robust AES 256-bit encryption. It uses an independent PIN, offers cross-platform syncing between your phone and computer, and even monitors unauthorized hack attempts to catch snoops in the act.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<a class="bg-primary hover:bg-[#4a3140] text-white px-6 py-3 rounded-lg font-bold transition-colors inline-flex items-center gap-2" href="https://play.google.com/store/apps/details?id=com.newsoftwares.folderlock_v1&amp;hl=en_IN" rel="noopener noreferrer" target="_blank">
+                            Try Folder Lock Free <span aria-hidden="true">→</span>
+</a>
+<a class="border border-white/30 hover:border-white/80 text-white px-6 py-3 rounded-lg font-medium transition-colors" href="https://store.newsoftwares.net/?add=fl10" rel="noopener noreferrer" target="_blank">
+                            Get the Full Version
+                        </a>
+</div>
+</div>
+<!-- Mockup -->
+<div class="relative w-full aspect-square md:aspect-[4/3] rounded-2xl bg-white/5 border border-white/10 shadow-2xl p-4 md:p-6 flex flex-col backdrop-blur-sm overflow-hidden material-you-dynamic-card">
+<img alt="Folder Lock Pro secure locker interface showing military-grade encrypted files and protected folders" class="w-full h-full object-contain rounded-xl shadow-inner bg-black/20" decoding="async" loading="lazy" src="https://i.ibb.co/Q713yG79/Folder-Lock-locker.jpg"/>
+<!-- Chip overlays -->
+<div class="chip-row">
+<div class="bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs px-3 py-1.5 rounded-full shadow-lg">Independent PIN</div>
+<div class="bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs px-3 py-1.5 rounded-full shadow-lg">AES 256-bit</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="container mx-auto px-4 md:px-8 max-w-[1200px] py-16 flex flex-col md:flex-row gap-12 relative">
+<aside class="hidden md:block w-64 flex-shrink-0 invisible">
+<!-- Spacer to align right column with the top section -->
+</aside>
+<main class="flex-1 max-w-[var(--max-reading-width)] w-full -mt-[64px]">
+<!-- Negative margin helps connect the layout vertically if needed, but we'll pad appropriately -->
+<!-- SECTION: Comparison Table (V3: Side-by-side card comparison) -->
+<section class="mb-16 scroll-mt-24 section-block pt-16" id="comparison">
+<h2 class="text-3xl font-bold mb-6">Google Photos vs Dedicated App Locks</h2>
+<div class="grid sm:grid-cols-2 gap-6 mt-8">
+<!-- Card 1 -->
+<div class="border border-border rounded-xl bg-white shadow-sm flex flex-col overflow-hidden">
+<div class="h-2 bg-gray-400 w-full"></div>
+<div class="p-6 flex-1">
+<h3 class="text-xl font-bold text-heading mb-2">Native Locked Folder</h3>
+<ul class="space-y-3 text-sm mt-4">
+<li class="flex gap-2"><svg class="w-5 h-5 text-green-600 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> Free and built-in</li>
+<li class="flex gap-2"><svg class="w-5 h-5 text-green-600 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> Hides photos from other apps</li>
+<li class="flex gap-2"><svg class="w-5 h-5 text-red-500 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> Uses same PIN as phone unlock</li>
+<li class="flex gap-2"><svg class="w-5 h-5 text-red-500 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> Cannot lock other apps/folders</li>
+</ul>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="border border-primary/30 rounded-xl bg-secondary/10 shadow-sm flex flex-col overflow-hidden relative">
+<div class="h-2 bg-primary w-full"></div>
+<div class="p-6 flex-1">
+<h3 class="text-xl font-bold text-heading mb-2">Folder Lock</h3>
+<ul class="space-y-3 text-sm mt-4">
+<li class="flex gap-2"><svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> <a href="https://psbios.com/file-encryption-explained/" rel="noopener noreferrer" target="_blank">True AES 256-bit encryption</a></li>
+<li class="flex gap-2"><svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> Cross-platform sync (iOS/Android/PC/Mac)</li>
+<li class="flex gap-2"><svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> Logs unauthorized access attempts</li>
+<li class="flex gap-2"><svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> Stealth browser and secure wallets</li>
+</ul>
+</div>
+</div>
+</div><div class="content-image banner"><img alt="Cross platform synchronization illustration for secure photos and private files across mobile desktop and web" class="w-full h-auto object-contain" decoding="async" loading="lazy" src="https://i.ibb.co/jZfz7Hzz/Cross-Platform-Synchronization.jpg"/></div>
+</section>
+<section class="mb-16 scroll-mt-24 section-block" id="tutorial">
+<h2 class="text-3xl font-bold mb-6">How to Set Up Google Photos Locked Folder</h2>
+<p class="mb-6">Setting up the feature for the first time is straightforward. Ensure your Google Photos app is updated before beginning.</p><div class="content-image compact"><img alt="Secure data unlocking illustration showing authenticated access to protected mobile content" class="w-full h-auto object-contain" decoding="async" loading="lazy" src="https://i.ibb.co/gLVNxgq4/Accessing-Data-Unlocking.jpg"/></div>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold shrink-0 mt-1">1</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Open Utilities</h4>
+<p class="text-sm text-body">Open the Google Photos app. Tap <strong>Library</strong> at the bottom right, then tap <strong>Utilities</strong>.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold shrink-0 mt-1">2</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Find Locked Folder</h4>
+<p class="text-sm text-body">Scroll down to the 'Organize your library' section and tap <strong>Locked Folder</strong>.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold shrink-0 mt-1">3</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Authenticate</h4>
+<p class="text-sm text-body">Tap 'Set up Locked Folder'. You will be prompted to verify your device's screen lock (fingerprint, face, or PIN).</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold shrink-0 mt-1">4</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Move Photos</h4>
+<p class="text-sm text-body">Select photos from your main grid, tap the three-dot menu, and select <strong>Move to Locked Folder</strong>.</p>
+</div>
+</div>
+</div>
+<div class="mt-8 bg-gray-50 border border-border p-5 rounded-lg text-sm flex flex-col sm:flex-row gap-6 items-center">
+<div class="flex-1">
+<strong class="text-heading block mb-2">Can I access Locked Folder Google Photos on PC?</strong>
+<p>Yes, as of recently, Google allows web access. Go to photos.google.com, click on 'Locked Folder' in the left sidebar, and enter your Google account password. <em class="text-meta">(Note: Cloud backup for the locked folder must be enabled on your phone first).</em></p>
+</div>
+<div class="w-full sm:w-1/3 shrink-0">
+<img alt="Illustration of cloud backup functionality syncing encrypted files to Dropbox and Google Drive" class="w-full h-auto rounded border border-border object-contain max-h-[160px] bg-white" decoding="async" loading="lazy" src="https://i.ibb.co/5yM4Kh6/folder-lock-android-cloud-backup-dropbox.jpg"/>
+</div>
+</div>
+</section>
+<section class="mb-16 scroll-mt-24 section-block" id="troubleshooting">
+<h2 class="text-3xl font-bold mb-6">Troubleshooting Guide</h2>
+<p class="mb-6">If you are locked out or experiencing issues, here is how to recover access safely as the device owner.</p>
+<div class="overflow-x-auto rounded-xl border border-border">
+<table class="w-full text-left border-collapse text-sm">
+<thead>
+<tr class="bg-secondary/50 text-heading">
+<th class="p-4 border-b border-border font-bold">Issue</th>
+<th class="p-4 border-b border-border font-bold">Safe Owner Recovery Steps</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border bg-white">
+<tr>
+<td class="p-4 font-medium">Forgot your device PIN?</td>
+<td class="p-4 text-meta">The Locked Folder uses your phone's lock screen PIN. If forgotten, you must perform a full device reset through your Google or Apple account recovery. <em>Warning: Resetting the phone deletes local Locked Folder data if backup wasn't on.</em></td>
+</tr>
+<tr>
+<td class="p-4 font-medium">Change Google Photos locked folder password</td>
+<td class="p-4 text-meta">You cannot change it independently. You must go to your phone's main <strong>Settings &gt; Security</strong> and change your device screen lock PIN/Pattern. The Locked Folder will automatically use the new one.</td>
+</tr>
+<tr>
+<td class="p-4 font-medium">Photos disappeared after new phone transfer</td>
+<td class="p-4 text-meta">Items in the Locked Folder do not transfer automatically via USB or transfer apps. You must enable 'Backup Locked Folder' on the old phone, then sign in on the new phone.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="content-image compact"><img alt="Android pattern and PIN recovery visual for resolving locked folder access issues" class="w-full h-auto object-contain" decoding="async" loading="lazy" src="https://i.ibb.co/7tBk10rd/android-pattern-pin-recovery.jpg"/></div>
+</section>
+<section class="mb-16 scroll-mt-24 section-block p-6 bg-white border border-border rounded-xl shadow-sm" id="interactive">
+<h3 class="text-xl font-bold mb-2">Platform Compatibility Checker</h3>
+<p class="text-sm text-meta mb-6">Select your device to see how Locked Folder behaves.</p><div class="content-image compact"><img alt="Smartphone shield illustration representing platform compatibility and mobile privacy protection" class="w-full h-auto object-contain" decoding="async" loading="lazy" src="https://i.ibb.co/h1C8dtH1/Smartphone-Shield.jpg"/></div>
+<div class="flex gap-4 mb-6">
+<button class="os-btn flex-1 py-2 border border-primary/20 rounded bg-secondary/20 font-bold text-primary hover:bg-secondary transition-colors data-[active=true]:bg-primary data-[active=true]:text-white" data-os="android">Android</button>
+<button class="os-btn flex-1 py-2 border border-primary/20 rounded bg-secondary/20 font-bold text-primary hover:bg-secondary transition-colors data-[active=true]:bg-primary data-[active=true]:text-white" data-os="ios">iPhone / iOS</button>
+<button class="os-btn flex-1 py-2 border border-primary/20 rounded bg-secondary/20 font-bold text-primary hover:bg-secondary transition-colors data-[active=true]:bg-primary data-[active=true]:text-white" data-os="web">Web / PC</button>
+</div>
+<div class="p-4 bg-gray-50 border border-border rounded text-sm min-h-[100px] flex items-center justify-center text-center text-meta" id="os-result">
+                    Select a platform above to view compatibility notes.
+                </div>
+</section>
+<section class="mb-16 scroll-mt-24 section-block" id="faq">
+<h2 class="text-3xl font-bold mb-6">Frequently Asked Questions</h2>
+<div class="content-image compact"><img alt="iPhone hidden album and private photo security illustration for mobile photo privacy questions" class="w-full h-auto object-contain" decoding="async" loading="lazy" src="https://i.ibb.co/VWwRM3SS/iphone-hidden-album-private-photos.jpg"/></div><div class="space-y-4" itemscope="" itemtype="https://schema.org/FAQPage">
+<!-- FAQ 1 -->
+<div class="border border-border rounded-lg bg-white overflow-hidden" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<button aria-expanded="false" class="accordion-trigger w-full px-6 py-4 text-left font-bold flex justify-between items-center hover:bg-gray-50 focus:outline-none" onclick="toggleAccordion(this)">
+<span itemprop="name">Are photos in Google Photos Locked Folder backed up?</span>
+<svg class="w-5 h-5 text-meta transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="accordion-content bg-white px-6">
+<div class="pb-4 text-sm text-meta" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<span itemprop="text">By default, no. You must manually toggle on the "Backup Locked Folder" setting inside the Utilities menu. If you do not turn this on, items remain locally on the device only.</span>
+</div>
+</div>
+</div>
+<!-- FAQ 2 -->
+<div class="border border-border rounded-lg bg-white overflow-hidden" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<button aria-expanded="false" class="accordion-trigger w-full px-6 py-4 text-left font-bold flex justify-between items-center hover:bg-gray-50 focus:outline-none" onclick="toggleAccordion(this)">
+<span itemprop="name">Can I add a lock on Google Photos after signing in?</span>
+<svg class="w-5 h-5 text-meta transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="accordion-content bg-white px-6">
+<div class="pb-4 text-sm text-meta" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<span itemprop="text">Google Photos itself does not have an app lock feature for the entire application natively. To lock the whole app from opening, you must use a third-party application like <a href="https://www.appbrain.com/app/photo-video-gallery-locker/net.newsoftwares.photandvideolocker" rel="noopener noreferrer" target="_blank">Folder Lock</a>, or your phone's native app locker if available (like Samsung Secure Folder).</span>
+</div>
+</div>
+</div>
+<!-- FAQ 3 -->
+<div class="border border-border rounded-lg bg-white overflow-hidden" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<button aria-expanded="false" class="accordion-trigger w-full px-6 py-4 text-left font-bold flex justify-between items-center hover:bg-gray-50 focus:outline-none" onclick="toggleAccordion(this)">
+<span itemprop="name">Can I have multiple locked folders in Google Photos?</span>
+<svg class="w-5 h-5 text-meta transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="accordion-content bg-white px-6">
+<div class="pb-4 text-sm text-meta" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<span itemprop="text">No, Google Photos only supports a single Locked Folder per Google account on a device. You cannot categorize items inside it into separate albums.</span>
+</div>
+</div>
+</div>
+<!-- FAQ 4 -->
+<div class="border border-border rounded-lg bg-white overflow-hidden" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<button aria-expanded="false" class="accordion-trigger w-full px-6 py-4 text-left font-bold flex justify-between items-center hover:bg-gray-50 focus:outline-none" onclick="toggleAccordion(this)">
+<span itemprop="name">How does biometric app locking work compared to PIN?</span>
+<svg class="w-5 h-5 text-meta transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="accordion-content bg-white px-6">
+<div class="pb-4 text-sm text-meta" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<span itemprop="text">Biometric locks (fingerprint/FaceID) are faster and prevent "shoulder surfing" where someone watches you type a PIN. However, they rely on a fallback PIN. If someone knows that fallback PIN, biometric security is bypassed.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-16 scroll-mt-24 section-block" id="pricing">
+<h2 class="text-3xl font-bold mb-6">Folder Lock Pricing: What You Get</h2>
+<p class="mb-6 text-body">If you decide to upgrade from native options, Folder Lock provides a generous starting tier alongside a comprehensive paid version (Version 10) that covers all your devices.</p>
+<div class="content-image product"><img alt="Folder Lock 10 product boxshot for encrypted locker and full ecosystem pricing section" class="w-full h-auto object-contain" decoding="async" loading="lazy" src="https://i.ibb.co/xSFPPmSR/folder-lock-10-boxshot-new-4.png"/></div><div class="grid md:grid-cols-2 gap-6">
+<div class="border border-border rounded-xl p-6 bg-white shadow-sm">
+<h3 class="text-xl font-bold text-heading mb-1">Free Version</h3>
+<p class="text-2xl font-extrabold text-meta mb-4">$0</p>
+<ul class="space-y-3 text-sm mb-6 text-meta">
+<li class="flex gap-2 items-start"><svg class="w-5 h-5 text-meta shrink-0 mt-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> <span><strong>1 GB</strong> encrypted locker size</span></li>
+<li class="flex gap-2 items-start"><svg class="w-5 h-5 text-meta shrink-0 mt-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> <span>Sync across <strong>2 devices</strong> maximum</span></li>
+<li class="flex gap-2 items-start"><svg class="w-5 h-5 text-meta shrink-0 mt-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> <span>Mobile app access (iOS &amp; Android)</span></li>
+</ul>
+<a class="block w-full text-center border-[1.5px] border-primary text-primary hover:bg-secondary px-4 py-2.5 rounded-md font-bold transition-colors" href="https://www.newsoftwares.net/download/folderlock10-en/folder-lock-en.exe" rel="noopener noreferrer" target="_blank">Download free version →</a>
+</div>
+<div class="border-2 border-primary rounded-xl p-6 bg-secondary/10 shadow-md relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-primary text-white text-[10px] font-bold uppercase tracking-wider py-1 px-3 rounded-bl-lg">Full Ecosystem</div>
+<h3 class="text-xl font-bold text-heading mb-1">Pro Version</h3>
+<p class="text-2xl font-extrabold text-primary mb-4">$39.95</p>
+<ul class="space-y-3 text-sm mb-6 text-body">
+<li class="flex gap-2 items-start"><svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> <span><strong>Unlimited</strong> encrypted locker size</span></li>
+<li class="flex gap-2 items-start"><svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> <span>Sync across up to <strong>5 devices</strong></span></li>
+<li class="flex gap-2 items-start"><svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> <span>Unlock secure wallets, private notes, and desktop integration (Windows/Mac)</span></li>
+<li class="flex gap-2 items-start"><svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> <span>Share lockers with unlimited users</span></li>
+</ul>
+<a class="block w-full text-center bg-primary hover:bg-[#4a3140] text-white px-4 py-2.5 rounded-md font-bold transition-colors" href="https://store.newsoftwares.net/?add=fl10" rel="noopener noreferrer" target="_blank">View full version pricing →</a>
+</div>
+</div>
+<p class="text-[13px] text-meta mt-4 text-center">Is it worth it? If you only need to hide a few photos on a single phone, the free version is plenty. If you want to sync encrypted files between your iPhone, Mac, and Windows PC, the Pro upgrade is highly recommended.</p>
+</section>
+<section class="border-t border-border pt-12 mt-12 pb-16">
+<h2 class="text-2xl font-bold mb-4">Our Verdict</h2>
+<p class="text-body mb-6">
+                    The Google Photos Locked Folder is an excellent, free starting point for hiding casual photos. However, because it relies entirely on your phone's master PIN, it isn't truly secure from anyone who knows how to unlock your phone (like a spouse or child).
+                </p>
+<p class="text-body mb-8">
+                    If you require genuine separation—a unique PIN just for your private files, the ability to lock entire applications, and stealth mode capabilities—we highly recommend using a dedicated tool like <a href="https://explore.openli.com/privacy/folder-lock" rel="noopener noreferrer" target="_blank">Folder Lock</a>.
+                </p>
+<div class="flex flex-wrap gap-4">
+<a class="border-[1.5px] border-primary text-primary hover:bg-primary hover:text-white px-6 py-3 rounded-md font-bold transition-colors" href="https://play.google.com/store/apps/details?id=com.newsoftwares.folderlock_v1&amp;hl=en_IN" rel="noopener noreferrer" target="_blank">
+                        Try Folder Lock free →
+                    </a>
+<a class="border-[1.5px] border-border text-heading hover:bg-gray-50 px-6 py-3 rounded-md font-medium transition-colors" href="https://store.newsoftwares.net/?add=fl10" rel="noopener noreferrer" target="_blank">
+                        View full version pricing →
+                    </a>
+</div>
+</section>
+</main>
+</div>
+<footer class="bg-[#1a1216] text-white/80 py-12 text-sm">
+<div class="container mx-auto px-4 md:px-8 max-w-[1200px] flex flex-col md:flex-row justify-between gap-8 border-b border-white/10 pb-8 mb-8">
+<div class="max-w-sm">
+<a class="flex items-center gap-2 font-heading font-bold text-xl text-white tracking-tight mb-4 brand-wordmark" href="/"><img alt="Security-themed PhotoVaultGuide shield logo" class="brand-logo object-contain" decoding="async" loading="eager" src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2096%2096%27%3E%0A%3Cdefs%3E%0A%3ClinearGradient%20id%3D%27g%27%20x1%3D%2712%27%20y1%3D%278%27%20x2%3D%2786%27%20y2%3D%2788%27%20gradientUnits%3D%27userSpaceOnUse%27%3E%0A%3Cstop%20stop-color%3D%27%23EADDFF%27/%3E%3Cstop%20offset%3D%270.55%27%20stop-color%3D%27%237857CC%27/%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23FFD8E4%27/%3E%0A%3C/linearGradient%3E%0A%3Cfilter%20id%3D%27s%27%20x%3D%27-20%25%27%20y%3D%27-20%25%27%20width%3D%27140%25%27%20height%3D%27140%25%27%3E%3CfeDropShadow%20dx%3D%270%27%20dy%3D%274%27%20stdDeviation%3D%275%27%20flood-color%3D%27%2321005D%27%20flood-opacity%3D%27.22%27/%3E%3C/filter%3E%0A%3C/defs%3E%0A%3Crect%20width%3D%2796%27%20height%3D%2796%27%20rx%3D%2728%27%20fill%3D%27%23FFFBFE%27/%3E%0A%3Cpath%20filter%3D%27url%28%23s%29%27%20d%3D%27M48%2010l30%2011v23c0%2019-12%2034-30%2042-18-8-30-23-30-42V21l30-11z%27%20fill%3D%27url%28%23g%29%27/%3E%0A%3Crect%20x%3D%2730%27%20y%3D%2743%27%20width%3D%2736%27%20height%3D%2725%27%20rx%3D%278%27%20fill%3D%27%23FFFBFE%27/%3E%0A%3Cpath%20d%3D%27M38%2043v-7c0-6%204-11%2010-11s10%205%2010%2011v7%27%20fill%3D%27none%27%20stroke%3D%27%2321005D%27%20stroke-width%3D%276%27%20stroke-linecap%3D%27round%27/%3E%0A%3Ccircle%20cx%3D%2748%27%20cy%3D%2755%27%20r%3D%274%27%20fill%3D%27%237857CC%27/%3E%0A%3Cpath%20d%3D%27M48%2058v5%27%20stroke%3D%27%237857CC%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27/%3E%0A%3C/svg%3E"/><span>PhotoVault</span><span class="brand-part-accent text-[#d4c3cd]">Guide</span></a>
+<p class="mb-4 text-white/60">Your independent resource for mobile privacy, app locking, and securing personal data.</p>
+<p class="text-xs text-white/50 border border-white/10 p-3 rounded bg-white/5">
+                    This site operates as an independent editorial resource. Some links may earn a referral commission at no cost to you. Product recommendations reflect editorial judgment and independent assessment.
+                </p>
+</div>
+<div class="flex gap-16">
+<div>
+<h4 class="text-white font-bold mb-4">Resources</h4>
+<ul class="space-y-2 text-white/60">
+<li><a class="hover:text-white" href="#methods">Methods Guide</a></li>
+<li><a class="hover:text-white" href="#comparison">Comparisons</a></li>
+<li><a class="hover:text-white" href="#troubleshooting">Troubleshooting</a></li>
+<li><a class="hover:text-white" href="#faq">FAQ</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4">Legal</h4>
+<ul class="space-y-2 text-white/60">
+<li><a class="hover:text-white" href="#privacy">Privacy Policy</a></li>
+<li><a class="hover:text-white" href="#terms">Terms of Use</a></li>
+<li><a class="hover:text-white" href="#editorial">Editorial Policy</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="container mx-auto px-4 md:px-8 max-w-[1200px] flex flex-col md:flex-row justify-between items-center text-xs text-white/40">
+<p>© 2026 PhotoVaultGuide</p>
+<p>Folder Lock is developed by <a class="hover:text-white underline" href="https://www.newsoftwares.net" rel="noopener noreferrer" target="_blank">NewSoftwares.net</a>.</p>
+</div>
+</footer>
+<a aria-label="Try Folder Lock Free" href="https://play.google.com/store/apps/details?id=com.newsoftwares.folderlock_v1&amp;hl=en_IN" id="floating-fab" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><path d="M12 3l7 3v5c0 4.7-2.8 8.9-7 10-4.2-1.1-7-5.3-7-10V6l7-3z" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path><path d="M9 12l2 2 4-5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></a><script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Google Photos Locked Folder — Setup, Access, and FAQ",
+      "description": "A complete guide to finding, setting up, and safely accessing the Google Photos Locked Folder.",
+      "author": {
+        "@type": "Organization",
+        "name": "Editorial Team"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NewSoftwares.net"
+      }
+    }
+    </script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Set Up Google Photos Locked Folder",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Open Utilities",
+          "text": "Open the Google Photos app. Tap Library at the bottom right, then tap Utilities."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Find Locked Folder",
+          "text": "Scroll down to the 'Organize your library' section and tap Locked Folder."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Authenticate",
+          "text": "Tap 'Set up Locked Folder'. You will be prompted to verify your device's screen lock."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Move Photos",
+          "text": "Select photos from your main grid, tap the three-dot menu, and select Move to Locked Folder."
+        }
+      ]
+    }
+    </script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Mobile Privacy"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Google Photos Locked Folder Guide"
+      }]
+    }
+    </script>
+<script defer="">
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Accordion Logic
+            window.toggleAccordion = function(button) {
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                button.setAttribute('aria-expanded', !isExpanded);
+            };
+
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Smooth Scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#' || targetId.length < 2) return;
+                    
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        targetEl.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // SIGNATURE DETAIL: IntersectionObserver for TOC Spy
+            const sections = document.querySelectorAll('.section-block');
+            const navLinks = document.querySelectorAll('.spy-link');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Remove active from all
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        
+                        // Add active to current
+                        const activeId = entry.target.getAttribute('id');
+                        const activeLink = document.querySelector(`.spy-link[href="#${activeId}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(sec => observer.observe(sec));
+
+            // Interactive Widget Logic (Compatibility)
+            const osBtns = document.querySelectorAll('.os-btn');
+            const resultBox = document.getElementById('os-result');
+
+            const osData = {
+                'android': '<strong class="block mb-2 text-heading">Android Native Support</strong>Fully integrated into Google Photos. Uses system PIN or Biometrics. Backup to cloud is optional and must be toggled manually.',
+                'ios': '<strong class="block mb-2 text-heading">iOS / iPhone Support</strong>Available in the Google Photos iOS app. Integrates with FaceID/TouchID. Photos moved here will be removed from Apple Photos if you grant permission.',
+                'web': '<strong class="block mb-2 text-heading">Web / PC Access</strong>Supported. Go to photos.google.com and look for "Locked Folder" on the left menu. Requires cloud backup to be turned ON from your mobile device first.'
+            };
+
+            osBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Reset buttons
+                    osBtns.forEach(b => b.setAttribute('data-active', 'false'));
+                    // Set active
+                    btn.setAttribute('data-active', 'true');
+                    // Update content
+                    const platform = btn.getAttribute('data-os');
+                    resultBox.innerHTML = osData[platform];
+                });
+            });
+            
+            // Set initial state
+            if(osBtns.length > 0) osBtns[0].click();
+
+
+            // Material You ripple effect
+            document.querySelectorAll('a, button, .accordion-trigger, .os-btn').forEach(el => {
+                el.addEventListener('mousedown', event => {
+                    const rect = el.getBoundingClientRect();
+                    const diameter = Math.max(rect.width, rect.height);
+                    const ripple = document.createElement('span');
+                    ripple.className = 'ripple-span';
+                    ripple.style.width = ripple.style.height = `${diameter}px`;
+                    ripple.style.left = `${event.clientX - rect.left - diameter / 2}px`;
+                    ripple.style.top = `${event.clientY - rect.top - diameter / 2}px`;
+                    el.querySelectorAll('.ripple-span').forEach(old => old.remove());
+                    el.appendChild(ripple);
+                    ripple.addEventListener('animationend', () => ripple.remove());
+                });
+            });
+
+            // Material You sliding nav pill indicator
+            const desktopNav = document.getElementById('desktop-nav');
+            if (desktopNav) {
+                const desktopItems = Array.from(desktopNav.querySelectorAll('a'));
+                const updateNavIndicator = (item) => {
+                    const navRect = desktopNav.getBoundingClientRect();
+                    const itemRect = item.getBoundingClientRect();
+                    desktopNav.style.setProperty('--nav-left', `${itemRect.left - navRect.left}px`);
+                    desktopNav.style.setProperty('--nav-width', `${itemRect.width}px`);
+                    desktopItems.forEach(link => link.classList.remove('active-nav'));
+                    item.classList.add('active-nav');
+                };
+                desktopItems.forEach(item => {
+                    item.addEventListener('mouseenter', () => updateNavIndicator(item));
+                    item.addEventListener('focus', () => updateNavIndicator(item));
+                    item.addEventListener('click', () => updateNavIndicator(item));
+                });
+                updateNavIndicator(desktopItems[0]);
+                window.addEventListener('resize', () => {
+                    const active = desktopNav.querySelector('.active-nav') || desktopItems[0];
+                    updateNavIndicator(active);
+                });
+            }
+
+            // FAB appears after hero
+            const fab = document.getElementById('floating-fab');
+            const hero = document.getElementById('hero');
+            if (fab && hero) {
+                const fabObserver = new IntersectionObserver(([entry]) => {
+                    fab.classList.toggle('is-visible', !entry.isIntersecting);
+                }, { threshold: 0.1 });
+                fabObserver.observe(hero);
+            }
+
+        });
+    </script>
+</body>
+</html>
