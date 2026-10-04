@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stevefrankns.github.io/Google-Photos-Locked-Folder-Setup-Access-and-FAQ/sitemap.xml
